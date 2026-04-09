@@ -36,6 +36,8 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="py-20">
         <h2 className="text-3xl font-bold text-center mb-10">Por qué elegir LA ROCA</h2>
@@ -56,6 +58,16 @@ export default function Home() {
             <h3 className="text-xl font-semibold mb-2">Horarios flexibles</h3>
             <p>Disponibles de lunes a sábado para atender tus necesidades.</p>
           </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 bg-gray-100">
+        <h2 className="text-3xl font-bold text-center mb-10">Contacto</h2>
+        <div className="text-center">
+          <p className="mb-2">WhatsApp: {cliente.whatsapp}</p>
+          <p className="mb-2">Email: {cliente.email}</p>
+          <p className="mb-2">Horario: {cliente.horario}</p>
         </div>
       </section>
     </div>
