@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white p-4 mt-auto">
       <div className="container mx-auto text-center">
-        <p>&copy; 2024 {cliente.marca}. Todos los derechos reservados.</p>
+        <p>&copy; 2026 {cliente.marca}. Todos los derechos reservados.</p>
         <p>WhatsApp: {cliente.whatsapp}</p>
         <p>Email: {cliente.email}</p>
         <p>Horario: {cliente.horario}</p>

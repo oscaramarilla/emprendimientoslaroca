@@ -31,5 +31,5 @@ export const cliente = {
     "Obras especiales",
   ],
   redes: ["Facebook", "Instagram", "Twitter"],
-  navegacion: ["Inicio", "Servicios", "Nosotros", "Pagos", "Contacto"],
+  navegacion: ["Inicio", "Servicios", "Contacto"],
 };
