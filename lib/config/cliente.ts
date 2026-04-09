@@ -6,7 +6,7 @@ export const cliente = {
   // Contact
   whatsapp: "595982368251",
   email: "cesarcent85@gmail.com",
-  horario: "Lunes a viernes de 07:00 a 18:00, sábados de 07:00 a 13:00",
+  horario: "Lunes a Sábados de 07:30 a 18:00 hs",
 
   // Visual
   colores: {
@@ -25,11 +25,21 @@ export const cliente = {
 
   // Content
   servicios: [
-    "Climatización",
-    "Terminaciones y protección",
-    "Seguridad y electricidad",
-    "Obras especiales",
+    "Venta de materiales eléctricos",
+    "Instalación y venta de cámaras de seguridad",
+    "Instalación y mantenimiento de aire acondicionado",
+    "Servicios de pintura en general",
+    "Placas antihumedad",
+    "Construcción e instalación de piscinas",
+    "Cerca eléctrica perimetral",
+    "Colocación de Durlock (Tabiquería seca)",
+    "Plomería",
+    "Servicio integral para la construcción",
   ],
-  redes: ["Facebook", "Instagram", "Twitter"],
-  navegacion: ["Inicio", "Servicios", "Contacto"],
+  redes: [
+    { name: "Facebook", url: "https://www.facebook.com" },
+    { name: "Instagram", url: "https://www.instagram.com" },
+    { name: "Twitter", url: "https://www.twitter.com" },
+  ],
+  navegacion: ["Inicio", "Servicios", "Nosotros", "Pagos", "Contacto"],
 };

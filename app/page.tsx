@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { cliente } from "@/lib/config/cliente";
 
 function getServiceDescription(servicio: string): string {
@@ -12,64 +14,85 @@ function getServiceDescription(servicio: string): string {
 
 export default function Home() {
   return (
-    <div className="container mx-auto p-4">
-      {/* Hero Section */}
-      <section className="text-center py-20 bg-gray-100">
-        <h1 className="text-4xl font-bold mb-4">{cliente.marca}</h1>
-        <p className="text-xl mb-8">{cliente.tagline}. Respuesta rápida por WhatsApp.</p>
-        <a
-          href={`https://wa.me/${cliente.whatsapp}`}
-          className="bg-accent text-white px-6 py-3 rounded-lg hover:bg-opacity-80"
-        >
-          Pedí presupuesto hoy
-        </a>
+    <main className="flex min-h-screen flex-col items-center justify-between bg-slate-950 text-white">
+      <section className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 opacity-40">
+          <Image
+            src="/hero-fondo.webp"
+            alt="Proyectos La Roca Emprendimientos"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <span className="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 block">
+            Seguridad y Excelencia
+          </span>
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+            Construimos soluciones
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+              que respalden tu futuro
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+            Deja de preocuparte por los detalles técnicos. Nosotros ejecutamos tu proyecto con precisión para que tú solo disfrutes de los resultados.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/servicios"
+              className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-blue-500/30 transition-all transform hover:scale-105"
+            >
+              Ver Nuestros Servicios
+            </Link>
+            <a
+              href={`https://wa.me/${cliente.whatsapp}?text=${encodeURIComponent(
+                "Hola,%20vengo%20de%20la%20web%20y%20quiero%20una%20cotización"
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-transparent border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold py-4 px-8 rounded-full transition-all"
+            >
+              Cotizar por WhatsApp
+            </a>
+          </div>
+        </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20">
-        <h2 className="text-3xl font-bold text-center mb-10">Nuestros Servicios</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {cliente.servicios.map((servicio) => (
-            <div key={servicio} className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-2">{servicio}</h3>
-              <p>{getServiceDescription(servicio)}</p>
+      <section className="w-full bg-white py-16 px-4 text-slate-900">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12">Por qué los clientes VIP eligen La Roca</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                ⏱️
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Entregas a Tiempo</h3>
+              <p className="text-slate-600">Valoramos tu tiempo. Cumplimos los plazos acordados sin excusas ni demoras.</p>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20">
-        <h2 className="text-3xl font-bold text-center mb-10">Por qué elegir LA ROCA</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Atención rápida</h3>
-            <p>Respuesta inmediata a consultas y presupuestos por WhatsApp.</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Soluciones integrales</h3>
-            <p>Servicios completos para hogar, comercio y obra en Paraguay.</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Profesionalismo</h3>
-            <p>Trabajos realizados con calidad y garantía.</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Horarios flexibles</h3>
-            <p>Disponibles de lunes a sábado para atender tus necesidades.</p>
-          </div>
-        </div>
-      </section>
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                🛡️
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Calidad Garantizada</h3>
+              <p className="text-slate-600">Utilizamos materiales de primera línea para asegurar que tu inversión dure años.</p>
+            </div>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center mb-10">Contacto</h2>
-        <div className="text-center">
-          <p className="mb-2">WhatsApp: {cliente.whatsapp}</p>
-          <p className="mb-2">Email: {cliente.email}</p>
-          <p className="mb-2">Horario: {cliente.horario}</p>
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                🤝
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Atención Personalizada</h3>
+              <p className="text-slate-600">Te acompañamos en cada paso del proceso con comunicación clara y transparente.</p>
+            </div>
+          </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

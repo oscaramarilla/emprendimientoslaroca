@@ -10,7 +10,16 @@ export default function Footer() {
         <p>Horario: {cliente.horario}</p>
         <div className="flex justify-center space-x-4 mt-2">
           {cliente.redes.map((red) => (
-            <span key={red}>{red}</span>
+            <a
+              key={red.name}
+              href={red.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ir a ${red.name}`}
+              className="hover:text-accent"
+            >
+              {red.name}
+            </a>
           ))}
         </div>
       </div>

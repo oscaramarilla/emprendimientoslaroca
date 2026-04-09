@@ -12,7 +12,10 @@ export default function Header() {
           <ul className="flex space-x-4">
             {cliente.navegacion.map((item) => (
               <li key={item}>
-                <Link href={`/${item.toLowerCase()}`} className="hover:text-accent">
+                <Link
+                  href={item === "Inicio" ? "/" : `/${item.toLowerCase()}`}
+                  className="hover:text-accent"
+                >
                   {item}
                 </Link>
               </li>
