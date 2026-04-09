@@ -33,6 +33,22 @@ function getServiceMessage(servicio: string): string {
   return messages[servicio] || "Hola César, vengo de la web. Me gustaría hacer una consulta.";
 }
 
+function getServiceEmotionalBenefit(servicio: string): string {
+  const emotionalBenefits: { [key: string]: string } = {
+    "Venta de materiales eléctricos": "Eficiencia y seguridad en tus instalaciones",
+    "Instalación y venta de cámaras de seguridad": "Tranquilidad y control total de tu propiedad",
+    "Instalación y mantenimiento de aire acondicionado": "Confort y frescura rápida en cualquier momento",
+    "Servicios de pintura en general": "Transformación y renovación de tus espacios",
+    "Placas antihumedad": "Ambiente saludable y libre de humedad",
+    "Construcción e instalación de piscinas": "Diversión y relax en tu propio oasis",
+    "Cerca eléctrica perimetral": "Protección máxima y disuasión efectiva",
+    "Colocación de Durlock (Tabiquería seca)": "Reformas rápidas y espacios optimizados",
+    "Plomería": "Soluciones inmediatas y sin complicaciones",
+    "Servicio integral para la construcción": "Proyecto completo sin preocupaciones",
+  };
+  return emotionalBenefits[servicio] || "Menos tiempo perdido y menos gastos inesperados.";
+}
+
 export default function Servicios() {
   return (
     <div className="container mx-auto p-4">
@@ -49,7 +65,7 @@ export default function Servicios() {
           <article key={servicio} className="bg-white p-6 rounded-3xl shadow-md">
             <h2 className="text-2xl font-semibold mb-4">{servicio}</h2>
             <p className="text-slate-700 mb-3">{getServiceBenefit(servicio)}</p>
-            <p className="font-medium text-slate-900 mb-4">Beneficio: menos tiempo perdido y menos gastos inesperados.</p>
+            <p className="font-medium text-slate-900 mb-4">Beneficio: {getServiceEmotionalBenefit(servicio)}</p>
             <Link
               href={`https://wa.me/${cliente.whatsapp}?text=${encodeURIComponent(getServiceMessage(servicio))}`}
               target="_blank"
