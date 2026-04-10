@@ -1,18 +1,11 @@
 'use client';
 
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { cliente } from "@/lib/config/cliente";
 
 export default function WhatsAppFloat() {
   const pathname = usePathname();
-  const [origin, setOrigin] = useState("");
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setOrigin(window.location.origin);
-    }
-  }, []);
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
 
   const message = encodeURIComponent(
     `Hola, quiero un presupuesto desde ${origin}${pathname}`

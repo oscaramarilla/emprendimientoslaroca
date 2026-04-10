@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { cliente } from "@/lib/config/cliente";
 import Link from "next/link";
 
@@ -49,13 +50,84 @@ function getServiceEmotionalBenefit(servicio: string): string {
   return emotionalBenefits[servicio] || "Menos tiempo perdido y menos gastos inesperados.";
 }
 
+function getServiceIcon(servicio: string) {
+  const icons: Record<string, ReactNode> = {
+    "Venta de materiales eléctricos": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+      </svg>
+    ),
+    "Instalación y venta de cámaras de seguridad": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="3" y="6" width="18" height="12" rx="2" />
+        <path d="M16 6l3 4-3 4" />
+        <circle cx="11" cy="12" r="2" />
+      </svg>
+    ),
+    "Instalación y mantenimiento de aire acondicionado": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 3v18M6 12h12" />
+        <path d="M4 7h16M4 17h16" />
+      </svg>
+    ),
+    "Servicios de pintura en general": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M7 3l10 10-4 4-10-10 4-4z" />
+        <path d="M16 8l3 3" />
+      </svg>
+    ),
+    "Placas antihumedad": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 3l8 4v6a8 8 0 1 1-16 0V7l8-4z" />
+        <path d="M9 12l3 3 5-5" />
+      </svg>
+    ),
+    "Construcción e instalación de piscinas": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 15h16M4 19h16" />
+        <path d="M5 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
+      </svg>
+    ),
+    "Cerca eléctrica perimetral": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 6v12M10 6v12M16 6v12M22 6v12" />
+        <path d="M2 9h20M2 15h20" />
+      </svg>
+    ),
+    "Colocación de Durlock (Tabiquería seca)": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 4h16v16H4V4z" />
+        <path d="M8 4v16M16 4v16M4 8h16M4 16h16" />
+      </svg>
+    ),
+    "Plomería": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M7 10v4a5 5 0 0 0 10 0v-4" />
+        <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+        <path d="M8 10h8" />
+      </svg>
+    ),
+    "Servicio integral para la construcción": (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 20h16V8L12 3 4 8v12z" />
+        <path d="M9 12h6M9 16h6" />
+      </svg>
+    ),
+  };
+  return icons[servicio] || (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="9" />
+    </svg>
+  );
+}
+
 export default function Servicios() {
   return (
     <div className="container mx-auto p-4">
       <header className="mb-10 text-center">
-        <p className="text-accent font-semibold mb-2">Servicios con impacto real</p>
-        <h1 className="text-4xl font-bold">Beneficios claros para tu hogar, comercio y obra</h1>
-        <p className="max-w-2xl mx-auto mt-4 text-slate-700">
+        <p className="text-slate-800 font-semibold mb-2">Servicios con impacto real</p>
+        <h1 className="text-4xl font-semibold text-slate-900">Beneficios claros para tu hogar, comercio y obra</h1>
+        <p className="max-w-2xl mx-auto mt-4 text-slate-600">
           Más que descripción técnica: te contamos cómo cada servicio reduce tu tiempo de gestión y te da tranquilidad.
         </p>
       </header>
@@ -63,17 +135,23 @@ export default function Servicios() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {cliente.servicios.map((servicio) => (
           <article key={servicio} className="bg-white p-6 rounded-3xl shadow-md">
-            <h2 className="text-2xl font-semibold mb-4">{servicio}</h2>
+            <div className="mb-4 flex items-center gap-4">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-slate-100 text-slate-900">
+                {getServiceIcon(servicio)}
+              </span>
+              <h2 className="text-2xl font-semibold text-slate-900">{servicio}</h2>
+            </div>
             <p className="text-slate-700 mb-3">{getServiceBenefit(servicio)}</p>
-            <p className="font-medium text-slate-900 mb-4">Beneficio: {getServiceEmotionalBenefit(servicio)}</p>
+            <p className="font-medium text-slate-800 mb-4">Beneficio: {getServiceEmotionalBenefit(servicio)}</p>
             <Link
               href={`https://wa.me/${cliente.whatsapp}?text=${encodeURIComponent(getServiceMessage(servicio))}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 bg-[#25D366] text-white rounded-lg hover:bg-[#128C7E] transition-colors duration-200"
+              className="inline-flex items-center gap-2 border border-slate-300 text-slate-700 hover:bg-slate-50 px-4 py-2 rounded-lg transition-colors duration-200"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
-                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="text-[#25D366]">
+                <path fill="#25D366" d="M16.67 7.27c-.22-.12-1.3-.64-1.5-.71-.2-.08-.35-.11-.5.12-.14.22-.55.71-.67.86-.12.14-.23.16-.43.06-.2-.1-.85-.31-1.62-.98-.6-.53-.99-1.19-1.11-1.39-.12-.2-.01-.31.08-.42.08-.1.18-.24.27-.34.09-.1.12-.17.18-.28.06-.11.03-.2-.02-.28-.05-.09-.46-1.08-.63-1.48-.17-.39-.34-.34-.47-.35-.12-.01-.27-.01-.41-.01-.14 0-.34.05-.52.25-.17.2-.66.66-.66 1.61 0 .95.69 1.87.78 2.06.09.18 1.28 2.06 3.1 2.85.42.18.74.29 1 .37.42.14.8.12 1.1.08.34-.05 1.05-.44 1.2-.86.15-.42.15-.78.11-.86-.05-.08-.18-.13-.34-.22z"/>
+                <path fill="#25D366" d="M12 2C6.48 2 2 6.48 2 12c0 1.86.5 3.6 1.36 5.11L2 22l4.94-1.3A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zM12 20c-1.73 0-3.35-.5-4.74-1.35l-.34-.2-2.94.77.78-2.86-.22-.37A7.95 7.95 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/>
               </svg>
               Cotizar por WhatsApp
             </Link>
@@ -82,15 +160,15 @@ export default function Servicios() {
       </div>
 
       <section className="mt-16 bg-gray-100 p-8 rounded-3xl shadow-sm">
-        <h2 className="text-3xl font-bold mb-6">Casos de éxito</h2>
+        <h2 className="text-3xl font-semibold text-slate-900 mb-6">Casos de éxito</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-3xl bg-white p-6 shadow-lg">
-            <p className="mb-4">&quot;Instalaron nuestro aire acondicionado en menos de 24 horas y ahora el local está fresco todo el día. El equipo llegó puntual y nos explicó cada paso.&quot;</p>
-            <p className="text-sm font-semibold">Cliente de comercio local</p>
+            <p className="mb-4 text-slate-700">&quot;Instalaron nuestro aire acondicionado en menos de 24 horas y ahora el local está fresco todo el día. El equipo llegó puntual y nos explicó cada paso.&quot;</p>
+            <p className="text-sm font-semibold text-slate-900">Cliente de comercio local</p>
           </div>
           <div className="rounded-3xl bg-white p-6 shadow-lg">
-            <p className="mb-4">&quot;La reparación de la humedad en la pared quedó perfecta y el problema no volvió. Me encantó la limpieza y la rapidez del trabajo.&quot;</p>
-            <p className="text-sm font-semibold">Cliente residencial en Asunción</p>
+            <p className="mb-4 text-slate-700">&quot;La reparación de la humedad en la pared quedó perfecta y el problema no volvió. Me encantó la limpieza y la rapidez del trabajo.&quot;</p>
+            <p className="text-sm font-semibold text-slate-900">Cliente residencial en Asunción</p>
           </div>
         </div>
       </section>
