@@ -93,6 +93,47 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="w-full bg-slate-900 py-16 px-4 mt-16">
+        <div className="max-w-6xl mx-auto text-center">
+          <span className="text-emerald-400 font-bold tracking-widest uppercase text-sm mb-4 block">
+            Respaldo y Garantía
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-10">
+            Elegidos por quienes exigen resultados
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-slate-700 pb-12 mb-12">
+            <div className="text-center">
+              <p className="text-4xl font-black text-blue-400 mb-2">+5</p>
+              <p className="text-slate-400 text-sm font-medium uppercase tracking-wider">Años de Experiencia</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-black text-emerald-400 mb-2">100%</p>
+              <p className="text-slate-400 text-sm font-medium uppercase tracking-wider">Garantía en Obra</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-black text-purple-400 mb-2">24h</p>
+              <p className="text-slate-400 text-sm font-medium uppercase tracking-wider">Respuesta a Cotizaciones</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-black text-orange-400 mb-2">10+</p>
+              <p className="text-slate-400 text-sm font-medium uppercase tracking-wider">Servicios Integrados</p>
+            </div>
+          </div>
+
+          <div className="mb-8">
+            <p className="text-slate-400 mb-6 font-medium">Trabajamos con insumos y tecnología de primeras marcas:</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+              <span className="text-xl font-bold text-white">Hikvision</span>
+              <span className="text-xl font-bold text-white">Durlock</span>
+              <span className="text-xl font-bold text-white">Philips</span>
+              <span className="text-xl font-bold text-white">Suvinil</span>
+              <span className="text-xl font-bold text-white">Tigre</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
