@@ -121,6 +121,62 @@ function getServiceIcon(servicio: string) {
   );
 }
 
+function getServiceDetails(servicio: string): string[] {
+  const details: Record<string, string[]> = {
+    "Venta de materiales eléctricos": [
+      "Cables y llaves térmicas",
+      "Disyuntores e interruptores",
+      "Tomacorrientes y tableros",
+    ],
+    "Instalación y venta de cámaras de seguridad": [
+      "Cámaras para interior y exterior",
+      "Grabación 24/7 y acceso remoto",
+      "Instalación con cableado ordenado",
+    ],
+    "Instalación y mantenimiento de aire acondicionado": [
+      "Instalación, mantenimiento o reparación",
+      "Equipos desde 12.000 hasta 60.000 BTU",
+      "Limpieza y revisión de unidades",
+    ],
+    "Servicios de pintura en general": [
+      "Exterior e interior con acabado profesional",
+      "Asesoría en colores y texturas",
+      "Cobertura limpia y sin manchas",
+    ],
+    "Placas antihumedad": [
+      "Diagnóstico del área afectada",
+      "Colocación de placas y barreras",
+      "Sellado duradero y estético",
+    ],
+    "Construcción e instalación de piscinas": [
+      "Diseños a medida para tu patio",
+      "Materiales resistentes y seguros",
+      "Supervisión de obra integral",
+    ],
+    "Cerca eléctrica perimetral": [
+      "Medición del perímetro completo",
+      "Montaje sobre muro o reja",
+      "Sistema seguro y homologado",
+    ],
+    "Colocación de Durlock (Tabiquería seca)": [
+      "Cielorrasos, divisores y revestimientos",
+      "Trabajo limpio y rápido",
+      "Listo para pintar o revestir",
+    ],
+    "Plomería": [
+      "Destapaciones y arreglos de pérdidas",
+      "Instalaciones nuevas para baños y cocinas",
+      "Reemplazo de válvulas y accesorios",
+    ],
+    "Servicio integral para la construcción": [
+      "Coordinación completa de obra",
+      "Gestión de materiales y mano de obra",
+      "Entrega a tiempo según plan",
+    ],
+  };
+  return details[servicio] || [];
+}
+
 export default function Servicios() {
   return (
     <div className="container mx-auto p-4">
@@ -143,6 +199,14 @@ export default function Servicios() {
             </div>
             <p className="text-slate-700 mb-3">{getServiceBenefit(servicio)}</p>
             <p className="font-medium text-slate-800 mb-4">Beneficio: {getServiceEmotionalBenefit(servicio)}</p>
+            <ul className="mb-4 space-y-2 text-sm text-slate-600">
+              {getServiceDetails(servicio).map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-1 inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-slate-400" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
             <Link
               href={`https://wa.me/${cliente.whatsapp}?text=${encodeURIComponent(getServiceMessage(servicio))}`}
               target="_blank"
