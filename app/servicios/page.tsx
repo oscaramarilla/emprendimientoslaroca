@@ -177,6 +177,22 @@ function getServiceDetails(servicio: string): string[] {
   return details[servicio] || [];
 }
 
+function getServiceImage(servicio: string): string {
+  const images: Record<string, string> = {
+    "Venta de materiales eléctricos": "/images/iluminacion.webp",
+    "Instalación y venta de cámaras de seguridad": "/images/camarasydvr.webp",
+    "Instalación y mantenimiento de aire acondicionado": "/images/aireacondicionado.webp",
+    "Servicios de pintura en general": "/images/pintando.webp",
+    "Placas antihumedad": "/images/construcciones.webp",
+    "Construcción e instalación de piscinas": "/images/construcciones.webp",
+    "Cerca eléctrica perimetral": "/images/construcciones.webp",
+    "Colocación de Durlock (Tabiquería seca)": "/images/tabiqueriaenseco.webp",
+    "Plomería": "/images/plomeria.webp",
+    "Servicio integral para la construcción": "/images/construcciones.webp",
+  };
+  return images[servicio] || "/images/construcciones.webp";
+}
+
 export default function Servicios() {
   return (
     <div className="container mx-auto p-4">
@@ -190,28 +206,39 @@ export default function Servicios() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {cliente.servicios.map((servicio) => (
-          <article key={servicio} className="bg-white p-6 rounded-3xl shadow-md">
-            <div className="mb-4 flex items-center gap-4">
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-slate-100 text-slate-900">
-                {getServiceIcon(servicio)}
-              </span>
-              <h2 className="text-2xl font-semibold text-slate-900">{servicio}</h2>
+          <article key={servicio} className="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col group">
+            <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
+              <picture>
+                <img
+                  src={getServiceImage(servicio)}
+                  alt={servicio}
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </picture>
             </div>
-            <p className="text-slate-700 mb-3">{getServiceBenefit(servicio)}</p>
-            <p className="font-medium text-slate-800 mb-4">Beneficio: {getServiceEmotionalBenefit(servicio)}</p>
-            <ul className="mb-4 space-y-2 text-sm text-slate-600">
-              {getServiceDetails(servicio).map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1 inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-slate-400" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <Link
-              href={`https://wa.me/${cliente.whatsapp}?text=${encodeURIComponent(getServiceMessage(servicio))}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-slate-300 text-slate-700 hover:bg-slate-50 px-4 py-2 rounded-lg transition-colors duration-200"
+            <div className="p-6 flex flex-col flex-1">
+              <div className="mb-4 flex items-center gap-4">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-slate-100 text-slate-900">
+                  {getServiceIcon(servicio)}
+                </span>
+                <h2 className="text-2xl font-semibold text-slate-900">{servicio}</h2>
+              </div>
+              <p className="text-slate-700 mb-3">{getServiceBenefit(servicio)}</p>
+              <p className="font-medium text-slate-800 mb-4">Beneficio: {getServiceEmotionalBenefit(servicio)}</p>
+              <ul className="mb-4 space-y-2 text-sm text-slate-600">
+                {getServiceDetails(servicio).map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1 inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-slate-400" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href={`https://wa.me/${cliente.whatsapp}?text=${encodeURIComponent(getServiceMessage(servicio))}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-slate-300 text-slate-700 hover:bg-slate-50 px-4 py-2 rounded-lg transition-colors duration-200 mt-auto"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="text-[#25D366]">
                 <path fill="#25D366" d="M16.67 7.27c-.22-.12-1.3-.64-1.5-.71-.2-.08-.35-.11-.5.12-.14.22-.55.71-.67.86-.12.14-.23.16-.43.06-.2-.1-.85-.31-1.62-.98-.6-.53-.99-1.19-1.11-1.39-.12-.2-.01-.31.08-.42.08-.1.18-.24.27-.34.09-.1.12-.17.18-.28.06-.11.03-.2-.02-.28-.05-.09-.46-1.08-.63-1.48-.17-.39-.34-.34-.47-.35-.12-.01-.27-.01-.41-.01-.14 0-.34.05-.52.25-.17.2-.66.66-.66 1.61 0 .95.69 1.87.78 2.06.09.18 1.28 2.06 3.1 2.85.42.18.74.29 1 .37.42.14.8.12 1.1.08.34-.05 1.05-.44 1.2-.86.15-.42.15-.78.11-.86-.05-.08-.18-.13-.34-.22z"/>
@@ -219,6 +246,7 @@ export default function Servicios() {
               </svg>
               Cotizar por WhatsApp
             </Link>
+            </div>
           </article>
         ))}
       </div>

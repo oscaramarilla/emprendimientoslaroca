@@ -16,14 +16,16 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-slate-950 text-white">
       <section className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-40">
-          <Image
-            src="/hero-fondo.webp"
-            alt="Proyectos La Roca Emprendimientos"
-            fill
-            className="object-cover"
-            priority
-          />
+        <div className="absolute inset-0 opacity-40 w-full h-full">
+          <picture>
+            <source media="(max-width: 600px)" srcSet="/images/construcciones.webp" type="image/webp" />
+            <source media="(max-width: 1024px)" srcSet="/images/construcciones.webp" type="image/webp" />
+            <img
+              src="/images/construcciones.webp"
+              alt="Proyectos La Roca Emprendimientos"
+              className="object-cover w-full h-full"
+            />
+          </picture>
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -125,11 +127,11 @@ export default function Home() {
           <div className="mb-8">
             <p className="text-slate-400 mb-6 font-medium">Trabajamos con insumos y tecnología de primeras marcas:</p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-              <span className="text-xl font-bold text-white">Hikvision</span>
-              <span className="text-xl font-bold text-white">Durlock</span>
-              <span className="text-xl font-bold text-white">Philips</span>
-              <span className="text-xl font-bold text-white">Suvinil</span>
-              <span className="text-xl font-bold text-white">Tigre</span>
+              <img src="/logos/hikvision.svg" alt="Hikvision" className="h-12 object-contain" loading="lazy" />
+              <img src="/logos/durlock.svg" alt="Durlock" className="h-12 object-contain" loading="lazy" />
+              <img src="/logos/philips.svg" alt="Philips" className="h-12 object-contain" loading="lazy" />
+              <img src="/logos/suvinil.svg" alt="Suvinil" className="h-12 object-contain" loading="lazy" />
+              <img src="/logos/tigre.svg" alt="Tigre" className="h-12 object-contain" loading="lazy" />
             </div>
           </div>
         </div>
