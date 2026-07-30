@@ -96,6 +96,38 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="w-full bg-white px-4 pb-16 text-slate-900">
+        <div className="mx-auto grid max-w-6xl gap-8 rounded-3xl bg-slate-950 p-8 text-white md:grid-cols-[1.2fr_1fr] md:items-center md:p-12">
+          <div>
+            <span className="mb-3 block text-sm font-bold uppercase tracking-widest text-amber-400">
+              Nueva tienda online
+            </span>
+            <h2 className="mb-4 text-3xl font-extrabold md:text-4xl">
+              Comprá tus cámaras y equipos directo con nosotros
+            </h2>
+            <p className="text-slate-300">
+              Cámaras de seguridad, grabadores, discos y accesorios con precios claros, garantía e
+              instalación a cargo de nuestro equipo. Armá tu pedido y recibí el presupuesto el
+              mismo día.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            <Link
+              href="/tienda"
+              className="inline-flex items-center justify-center rounded-full bg-amber-500 px-8 py-4 font-bold text-slate-900 transition hover:brightness-95"
+            >
+              Ir a la TIENDA
+            </Link>
+            <Link
+              href="/presupuesto"
+              className="inline-flex items-center justify-center rounded-full border-2 border-white/80 px-8 py-4 font-bold text-white transition hover:bg-white hover:text-slate-900"
+            >
+              Armar mi presupuesto
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="w-full bg-slate-900 py-16 px-4 mt-16">
         <div className="max-w-6xl mx-auto text-center">
           <span className="text-emerald-400 font-bold tracking-widest uppercase text-sm mb-4 block">

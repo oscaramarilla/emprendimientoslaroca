@@ -1,9 +1,25 @@
+import Link from "next/link";
 import { cliente } from "@/lib/config/cliente";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white p-4 mt-auto">
+    <footer className="no-print bg-primary text-white p-4 mt-auto">
       <div className="container mx-auto text-center">
+        <nav className="mb-4 flex flex-wrap justify-center gap-4 text-sm">
+          {cliente.navegacion.map((item) => (
+            <Link
+              key={item}
+              href={item === "Inicio" ? "/" : `/${item.toLowerCase()}`}
+              className="text-slate-200 hover:text-accent"
+            >
+              {item}
+            </Link>
+          ))}
+          <Link href="/presupuesto" className="text-slate-200 hover:text-accent">
+            Presupuestos
+          </Link>
+        </nav>
+
         <p>&copy; 2026 {cliente.marca}. Todos los derechos reservados.</p>
         <p>WhatsApp: {cliente.whatsapp}</p>
         <p>Email: {cliente.email}</p>

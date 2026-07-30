@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "importar-productos": "node scripts/importar-productos.mjs"
   },
   "dependencies": {
-    "next": "16.2.3",
+    "next": "^16.2.3",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },

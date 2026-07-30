@@ -19,3 +19,33 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Impresión / guardar como PDF: solo se imprime el documento del presupuesto. */
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+  }
+
+  .documento-impresion {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    break-inside: avoid;
+  }
+
+  .documento-impresion table {
+    page-break-inside: auto;
+  }
+
+  .documento-impresion tr {
+    break-inside: avoid;
+  }
+}
