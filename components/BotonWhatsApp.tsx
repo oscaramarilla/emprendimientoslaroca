@@ -6,7 +6,7 @@ export default function BotonWhatsApp() {
   const mensaje = "Hola! Estaba viendo la web de La Roca Emprendimientos y me gustaría hacer una consulta.";
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="no-print fixed bottom-6 right-6 z-50">
       <Link
         href={`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`}
         target="_blank"

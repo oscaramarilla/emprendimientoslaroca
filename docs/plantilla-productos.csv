@@ -1,0 +1,4 @@
+slug,nombre,categoria,marca,precio,precioInstalacion,destacado,disponible,imagen,resumen,descripcion,especificaciones
+camara-bullet-2mp-exterior,Cámara bullet 2MP exterior,camaras,Hikvision,350000,,si,si,/images/productos/camara-bullet.webp,Cámara exterior full HD con visión nocturna.,Texto largo opcional para la ficha del producto.,Resolución:1080p (2MP)|Visión nocturna:Infrarroja hasta 30 m|Uso:Exterior
+dvr-8-canales,DVR 8 canales,grabadores,Hikvision,750000,,no,si,,Grabador para hasta 8 cámaras con acceso remoto.,,Canales:8|Acceso remoto:App para celular
+disco-1tb-videovigilancia,Disco 1TB para videovigilancia,almacenamiento,Seagate,420000,,no,si,,Disco preparado para grabación continua 24/7.,,Capacidad:1 TB|Uso:Grabación 24/7

@@ -41,9 +41,25 @@ npm run dev
 ## Estructura del proyecto
 
 - `lib/config/cliente.ts` - Configuración del cliente
+- `lib/data/productos.ts` - Catálogo y precios de la tienda
+- `lib/data/presupuesto.ts` - Cálculos y texto de los presupuestos
 - `components/` - Componentes reutilizables
 - `app/` - Páginas Next.js
 - `public/` - Imágenes y assets estáticos
+- `docs/` - Guías de mantenimiento y plantilla CSV de productos
+
+## Tienda y presupuestos
+
+- `/tienda`, `/tienda/[producto]` y `/tienda/carrito` - Venta de cámaras, grabadores y accesorios.
+- `/presupuesto` - Generador de presupuestos numerados con PDF y envío por WhatsApp.
+
+Para cargar la lista de precios:
+
+```bash
+npm run importar-productos docs/plantilla-productos.csv
+```
+
+Ver [docs/tienda-y-presupuestos.md](docs/tienda-y-presupuestos.md) para el detalle.
 
 ## Notas
 - Los colores se aplican automáticamente desde la config

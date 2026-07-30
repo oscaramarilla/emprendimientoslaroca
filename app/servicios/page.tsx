@@ -204,6 +204,29 @@ export default function Servicios() {
         </p>
       </header>
 
+      <div className="mb-10 flex flex-col items-center justify-between gap-4 rounded-3xl bg-slate-950 p-6 text-white sm:flex-row">
+        <div>
+          <p className="text-lg font-bold">¿Buscás comprar los equipos?</p>
+          <p className="text-sm text-slate-300">
+            En la tienda vendemos cámaras, grabadores, discos y accesorios, con o sin instalación.
+          </p>
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/tienda"
+            className="inline-flex items-center justify-center rounded-full bg-amber-500 px-6 py-3 font-bold text-slate-900 transition hover:brightness-95"
+          >
+            Ir a la tienda
+          </Link>
+          <Link
+            href="/presupuesto"
+            className="inline-flex items-center justify-center rounded-full border border-white/70 px-6 py-3 font-semibold text-white transition hover:bg-white hover:text-slate-900"
+          >
+            Armar presupuesto
+          </Link>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {cliente.servicios.map((servicio) => (
           <article key={servicio} className="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col group">

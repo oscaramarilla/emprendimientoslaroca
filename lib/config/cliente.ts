@@ -20,7 +20,7 @@ export const cliente = {
   seo: {
     title: "LA ROCA - Servicios integrales",
     description: "Climatización, terminaciones, seguridad y obras especiales",
-    baseUrl: "https://domain.com",
+    baseUrl: "https://larocaemprendimientos.com",
   },
 
   // Content
@@ -41,5 +41,40 @@ export const cliente = {
     { name: "Instagram", url: "https://www.instagram.com" },
     { name: "Twitter", url: "https://www.twitter.com" },
   ],
-  navegacion: ["Inicio", "Servicios", "Nosotros", "Pagos", "Contacto"],
+  navegacion: ["Inicio", "Servicios", "Tienda", "Nosotros", "Pagos", "Contacto"],
+
+  // Datos comerciales (tienda y presupuestos)
+  moneda: {
+    codigo: "PYG",
+    simbolo: "Gs.",
+  },
+
+  // En Paraguay los precios se publican con IVA incluido (10%).
+  // El IVA contenido en un precio final se calcula como total / 11.
+  ivaPorcentaje: 10,
+
+  presupuesto: {
+    prefijo: "PRES",
+    validezDias: 15,
+    notaPie:
+      "Precios expresados en guaraníes con IVA incluido. El presupuesto no incluye trabajos no detallados en este documento.",
+  },
+
+  tienda: {
+    titulo: "Tienda La Roca",
+    subtitulo:
+      "Cámaras de seguridad, grabadores, discos y accesorios con instalación profesional a cargo de nuestro equipo.",
+    entrega:
+      "Retiro sin costo en nuestro depósito o envío coordinado por WhatsApp.",
+    // Mientras esté en true, el catálogo muestra el aviso de "lista de precios en carga".
+    // Cambiar a false cuando estén cargados los precios definitivos de César.
+    catalogoEnCarga: true,
+  },
+
+  // Datos bancarios usados en la página de Pagos y al pie de los presupuestos
+  datosBancarios: {
+    titular: "CENTURION MENDEZ, CESAR DAVID",
+    cedula: "4225312",
+    cuenta: "81-25682",
+  },
 };
